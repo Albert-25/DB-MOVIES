@@ -1,0 +1,14 @@
+CREATE TABLE PERSON (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    firstName VARCHAR(255) NOT NULL,
+    lastName VARCHAR(255) NOT NULL,
+    biography TEXT,
+    dateOfBirth DATE,
+    gender VARCHAR(10),
+    countryId INT,
+    primaryPhotoFileId INT,
+    createdAt DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updatedAt DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (countryId) REFERENCES COUNTRY(id),
+    FOREIGN KEY (primaryPhotoFileId) REFERENCES FILE(id)
+);
